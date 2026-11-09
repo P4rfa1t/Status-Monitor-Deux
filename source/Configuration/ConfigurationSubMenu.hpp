@@ -76,7 +76,14 @@ private:
 
 			char c = text[i++];
 			if (c == ' ') {
-				flushWord(true);
+				if (currentWord.empty()) {
+					// A CJK codepoint was just emitted as its own unit, so there
+					// is no pending word to flush. Keep the separator or the
+					// next Latin word would run into the Chinese text.
+					if (!currentLine.empty() && currentLine.back() != ' ') currentLine += ' ';
+				} else {
+					flushWord(true);
+				}
 			} else if (c == '\n') {
 				// Respect any explicit newlines already in the string
 				wrappedText += currentLine + currentWord + "\n";
