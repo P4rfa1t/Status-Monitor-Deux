@@ -126,8 +126,8 @@ public:
 			bool errorFound = false;
 			for (size_t i = 0; i < svc.initErrors.size(); i++) {
 				if (svc.initErrors[i].ok() == false) {
-					if (svc.initErrors[i].detail.length() > 0) descriptionAdjusted = wrapText(resolveHexEscapes(svc.initErrors[0].detail), 360, descriptionSize);
-					else descriptionAdjusted = locale["init_error_no_desc"];
+					if (svc.initErrors[i].detail.length() > 0) descriptionAdjusted = wrapText(resolveHexEscapes(svc.initErrors[i].detail), 360, descriptionSize);
+					else descriptionAdjusted = localizedOr("init_error_no_desc", "Init error with no desc");
 					errorFound = true;
 				}
             }				
@@ -136,7 +136,7 @@ public:
 					for (size_t x = 0; x < svc.execErrors[i].size(); x++) {
 						if (svc.execErrors[i][x].ok() == false) {
 							if (svc.execErrors[i][x].detail.size() > 0) descriptionAdjusted = wrapText(resolveHexEscapes(svc.execErrors[i][x].detail), 360, descriptionSize);
-							else descriptionAdjusted = locale["exec_error_no_desc"];
+							else descriptionAdjusted = localizedOr("exec_error_no_desc", "Exec error with no desc");
 							errorFound = true;
 							break;
 						}

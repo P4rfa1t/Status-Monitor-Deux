@@ -979,6 +979,12 @@ std::string resolveHexEscapes(const std::string& s) {
     return result;
 }
 
+std::string localizedOr(const char* key, const char* fallback) {
+	auto it = locale.find(key);
+	if (it == locale.end() || it->second.empty()) return fallback;
+	return it->second;
+}
+
 // Custom utility function for parsing an ini file
 void ParseIniFile() {
 	std::string overlayName;
@@ -1148,23 +1154,18 @@ void ParseIniFile() {
 	if (override_check == true && temp_overrideLanguage.length() > 0) {
 		overrideLanguage = temp_overrideLanguage;
 		auto it = temp.find(overrideLanguage);
-		bool isGood = false;
 		if (it != temp.end()) {
-			isGood = true;
+			// Missing keys are backfilled below, so a section written for an
+			// older release keeps every string it does define. Requiring the
+			// whole key set here would throw away the user's language entirely.
 			locale = std::unordered_map<std::string, std::string>(it->second.begin(), it->second.end());
 			for (const auto& [key, data] : m_defaultLocale) {
-				if (locale.find(key) == locale.end()) {
-					isGood = false;
-					break;
-				}
-			}
-			if (isGood == true) for (const auto& [key, data] : m_defaultLocale) {
 				auto it2 = locale.find(key);
 				if (it2 != locale.end()) it2->second = resolveHexEscapes(locale[key]);
 				else locale[key] = resolveHexEscapes(data);
 			}
 		}
-		if (isGood == false) {
+		else {
 			for (const auto& [key, data] : m_defaultLocale) {
 				locale[key] = resolveHexEscapes(data);
 			}
@@ -1201,26 +1202,20 @@ void ParseIniFile() {
 			}
 
 			auto it = temp.find(overrideLanguage);
-			bool isGood = false;
 			if (it != temp.end()) {
+				// Same as the override path above: backfill instead of
+				// discarding a section that predates the newest keys.
 				locale = std::unordered_map<std::string, std::string>(it->second.begin(), it->second.end());
-				isGood = true;
 				for (const auto& [key, data] : m_defaultLocale) {
-					if (locale.find(key) == locale.end()) {
-						isGood = false;
-						break;
-					}
-				}
-				if (isGood == true) for (const auto& [key, data] : m_defaultLocale) {
 					auto it2 = locale.find(key);
 					if (it2 != locale.end()) it2->second = resolveHexEscapes(locale[key]);
 					else locale[key] = resolveHexEscapes(data);
 				}
 			}
-			if (isGood == false) {
+			else {
 				for (const auto& [key, data] : m_defaultLocale) {
 					locale[key] = resolveHexEscapes(data);
-				}				
+				}
 			}
 		}
 	}

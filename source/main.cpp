@@ -304,7 +304,7 @@ public:
             rootFrame->setContent(list);
         }
         else {
-            const std::string noSmdFilesText = locale["no_smd_files"];
+            const std::string noSmdFilesText = localizedOr("no_smd_files", "No folders or .smd files found!");
             auto Status = new tsl::elm::CustomDrawer([noSmdFilesText](tsl::gfx::Renderer *renderer, u16 x, u16 y, u16 w, u16 h) {
                 renderer->drawString(noSmdFilesText.c_str(), false, 20, 20, 20, renderer->a(0xFFFF));
             });

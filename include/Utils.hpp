@@ -418,4 +418,10 @@ std::string flatListToList(const std::string& input);
 void convertHidnpadKeyToButtonCombination (u64 bitfield, std::string& buttonCombinationToShow, std::string& buttonCombinationToConfig);
 std::string resolveHexEscapes(const std::string& s);
 
+// Looks a key up in `locale` and falls back to `fallback` when the map is
+// empty or the key is missing/blank. `locale` is only populated once
+// ParseIniFile() succeeds, so call sites that used to hold a literal need
+// this to keep showing something.
+std::string localizedOr(const char* key, const char* fallback);
+
 extern "C" void* sbrk(intptr_t increment);
