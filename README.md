@@ -43,6 +43,7 @@ Any additional service can be added by creating `.smse` file.
 > - American English
 > - Polish
 > - German
+> - Simplified Chinese
 >
 > If you want to add new language, send in issues those two translated files: [FILE 1](config/status-monitor-deux/locale.ini), [FILE 2](docs/toTranslate.ini)
 

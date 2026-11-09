@@ -237,8 +237,10 @@ static double divide(double a, double b) {return a / b;}
 static double negate(double a) {return -a;}
 static double comma(double a, double b) {(void)a; return b;}
 
-#define LINKABLE __attribute__ ((weak))
-extern double strtod(const char* str, char** endptr) LINKABLE;
+/* strtod is declared by <stdlib.h> above. A weak redeclaration here makes the
+   call site survive linking unresolved, which on MinGW/UCRT leaves the call
+   pointing at a garbage address (the import library only exports
+   __mingw_strtod / __strtod). Keep the normal strong declaration. */
 
 
 void next_token(state *s) {

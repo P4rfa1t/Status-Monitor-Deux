@@ -8,6 +8,20 @@ private:
 	std::string footerBackup;
 	static constexpr size_t descriptionSize = 18;
 
+	// Lead byte of a 3- or 4-byte UTF-8 codepoint. Those are the scripts written
+	// without spaces (CJK, Hangul), which the word loop below would otherwise
+	// accumulate into one unbreakable "word". 2-byte codepoints deliberately stay
+	// inside the word so European text keeps breaking at spaces only.
+	static bool isWideLeadByte(unsigned char c) {
+		return c >= 0xE0;
+	}
+
+	static size_t codepointLength(unsigned char lead) {
+		if ((lead & 0xF0) == 0xE0) return 3;
+		if ((lead & 0xF8) == 0xF0) return 4;
+		return 1;
+	}
+
 	std::string wrapText(const std::string& text, u32 maxWidth, u32 fontsize) {
 		std::string wrappedText;
 		std::string currentLine;
@@ -17,25 +31,52 @@ private:
 		// Helper lambda to measure string width invisibly
 		auto measureWidth = [&](const std::string& str) {
 			// Passing 0, 0 for x/y since we only care about the returned width
-			
+
 			const auto [width, height] = renderer.drawString(str.c_str(), false, 0, fontsize, fontsize, renderer.a(0x0000));
 			return width;
 		};
 
-		for (char c : text) {
+		// Append one already-whole unit, starting a new line when it stops
+		// fitting. A unit is never split, so a multibyte codepoint always
+		// survives a line break intact.
+		auto appendUnit = [&](const std::string& unit, bool trailingSpace) {
+			std::string padded = trailingSpace ? unit + " " : unit;
+			if (currentLine.empty()) {
+				currentLine = padded;
+				return;
+			}
+			if (measureWidth(currentLine + unit) > maxWidth) {
+				while (!currentLine.empty() && currentLine.back() == ' ') currentLine.pop_back();
+				wrappedText += currentLine + "\n";
+				currentLine = padded;
+			} else {
+				currentLine += padded;
+			}
+		};
+
+		// Hand the pending ASCII word to appendUnit and clear it.
+		auto flushWord = [&](bool trailingSpace) {
+			if (currentWord.empty()) return;
+			appendUnit(currentWord, trailingSpace);
+			currentWord.clear();
+		};
+
+		for (size_t i = 0; i < text.size(); ) {
+			unsigned char uc = (unsigned char)text[i];
+
+			if (isWideLeadByte(uc)) {
+				// One codepoint per unit, so lines may break between characters.
+				size_t len = codepointLength(uc);
+				if (i + len > text.size()) len = 1;   // truncated sequence: emit as-is
+				flushWord(false);
+				appendUnit(text.substr(i, len), false);
+				i += len;
+				continue;
+			}
+
+			char c = text[i++];
 			if (c == ' ') {
-				// Check if adding the current word exceeds our max width
-				if (measureWidth(currentLine + currentWord) > maxWidth && !currentLine.empty()) {
-					// Drop the trailing space from the previous line before breaking
-					if (!currentLine.empty() && currentLine.back() == ' ') {
-						currentLine.pop_back();
-					}
-					wrappedText += currentLine + "\n";
-					currentLine = currentWord + " ";
-				} else {
-					currentLine += currentWord + " ";
-				}
-				currentWord.clear();
+				flushWord(true);
 			} else if (c == '\n') {
 				// Respect any explicit newlines already in the string
 				wrappedText += currentLine + currentWord + "\n";
@@ -46,19 +87,8 @@ private:
 			}
 		}
 
-		// Append whatever is left over at the end of the loop
-		if (!currentWord.empty()) {
-			if (measureWidth(currentLine + currentWord) > maxWidth && !currentLine.empty()) {
-				if (!currentLine.empty() && currentLine.back() == ' ') {
-					currentLine.pop_back();
-				}
-				wrappedText += currentLine + "\n" + currentWord;
-			} else {
-				wrappedText += currentLine + currentWord;
-			}
-		} else if (!currentLine.empty()) {
-			wrappedText += currentLine;
-		}
+		flushWord(false);
+		wrappedText += currentLine;
 
 		return wrappedText;
 	}

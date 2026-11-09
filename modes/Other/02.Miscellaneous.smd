@@ -1,6 +1,7 @@
 Name = Miscellaneous
 NAME_LOCALE{"PL-PL", "Różności"}
 NAME_LOCALE{"DE-DE", "Verschiedenes"}
+NAME_LOCALE{"ZH-CN", "杂项"}
 VERSION = 1
 
 MultimediaText   = IETF{"Multimedia clock rates:"}
@@ -19,11 +20,17 @@ IETF_LOCALE{EthernetText,     "PL-PL", "Rodzaj: Ethernet"}
 IETF_LOCALE{NotConnectedText, "PL-PL", "Rodzaj: niepodłączona"}
 
 IETF_LOCALE{MultimediaText,   "DE-DE", "Multimedia Tackfrequenz:"}
+IETF_LOCALE{MultimediaText, "ZH-CN", "多媒体单元频率:"}
 IETF_LOCALE{NetworkText,      "DE-DE", "Netzwerk:"}
+IETF_LOCALE{NetworkText, "ZH-CN", "网络:"}
 IETF_LOCALE{WiFiText,         "DE-DE", "Typ: WiFi"}
+IETF_LOCALE{WiFiText, "ZH-CN", "类型: Wi-Fi"}
 IETF_LOCALE{ShowPasswordText, "DE-DE", "Drücke Y um das Passwort anzuzeigen"}
+IETF_LOCALE{ShowPasswordText, "ZH-CN", "按 Y 显示密码"}
 IETF_LOCALE{EthernetText,     "DE-DE", "Typ: Ethernet"}
+IETF_LOCALE{EthernetText, "ZH-CN", "类型: 有线网络"}
 IETF_LOCALE{NotConnectedText, "DE-DE", "Typ: Nicht verbunden"}
+IETF_LOCALE{NotConnectedText, "ZH-CN", "类型: 未连接"}
 
 EnableMisc = true
 Text1: {"NVDEC: %u.%u MHz", Misc_NvDecHz_int / 1000000, (Misc_NvDecHz_int / 100000) % 10}

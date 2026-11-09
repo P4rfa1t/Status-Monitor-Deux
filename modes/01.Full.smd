@@ -1,13 +1,16 @@
 Name = Full
 NAME_LOCALE{"PL-PL", "Pełny"}
 NAME_LOCALE{"DE-DE", "Voll"}
+NAME_LOCALE{"ZH-CN", "完整"}
 VERSION = 1
 
 User_RefreshRate = 1
 ;;User_RefreshRate_Description = Max refresh rate of rendered overlay. It won't be faster than your current display refresh rate because of vsync.
+;;User_RefreshRate_Description_ZH-CN = 渲染覆盖层的最高刷新率。受垂直同步限制，不会快于当前屏幕刷新率。
 ;;User_RefreshRate_Description_PL-PL = Maksymalna częstotliwość odświeżania nakładki. Przez vsync nie będzie szybsza niż odświeżanie ekranu.
 ;;User_RefreshRate_Description_DE-DE = Maximale Aktualisierungsrate des Overlays. Aufgrund von VSync kann es nicht höher als die aktuelle Bildwiederholrate sein.
 ;;User_RefreshRate_Name = Refresh rate
+;;User_RefreshRate_Name_ZH-CN = 刷新率
 ;;User_RefreshRate_Name_PL-PL = Odświeżanie
 ;;User_RefreshRate_Name_DE-DE = Aktualisierungsrate
 
@@ -15,60 +18,74 @@ User_RefreshRate = 1
 ;;User_RefreshRate_Range = {int, 1, 60}
 User_ShowRealFrequencies = true
 ;;User_ShowRealFrequencies_Description = Show real frequencies for CPU, GPU and RAM. Shows up only when hoc-clk or sys-clk is detected running.
+;;User_ShowRealFrequencies_Description_ZH-CN = 显示 CPU、GPU 和内存的实时频率。仅在检测到 hoc-clk 或 sys-clk 运行时出现。
 ;;User_ShowRealFrequencies_Description_PL-PL = Pokaż rzeczywiste taktowania CPU, GPU\ni RAM. Dostępne tylko gdy działa w tle hoc-clk albo sys-clk.
 ;;User_ShowRealFrequencies_Description_DE-DE = Zeigt tatsächliche Frequenzen für CPU, GPU und RAM an. Wird nur angezeigt, wenn hoc-clk oder sys-clk erkannt werden.
 ;;User_ShowRealFrequencies_Name = Show real frequencies
+;;User_ShowRealFrequencies_Name_ZH-CN = 显示实时频率
 ;;User_ShowRealFrequencies_Name_PL-PL = Pokaż rzeczywiste częstotliwości
 ;;User_ShowRealFrequencies_Name_DE-DE = Echte Frequenzen anzeigen
 
 ;;User_ShowRealFrequencies_DefaultValue = true
 User_ShowTargetFrequencies = true
 ;;User_ShowTargetFrequencies_Description = Show target frequencies for CPU, GPU and RAM.
+;;User_ShowTargetFrequencies_Description_ZH-CN = 显示 CPU、GPU 和内存的目标频率。
 ;;User_ShowTargetFrequencies_Description_PL-PL = Pokaż docelowe taktowanie CPU, GPU\ni RAM.
 ;;User_ShowTargetFrequencies_Description_DE-DE = Zeigt Zielfrequenzen für CPU, GPU und RAM an.
 ;;User_ShowTargetFrequencies_Name = Show target frequencies
+;;User_ShowTargetFrequencies_Name_ZH-CN = 显示目标频率
 ;;User_ShowTargetFrequencies_Name_PL-PL = Pokaż docelowe częstowliości
 ;;User_ShowTargetFrequencies_Name_DE-DE = Zielfrequenzen anzeigen
 
 ;;User_ShowTargetFrequencies_DefaultValue = true
 User_ShowFrequenceDeltas = true
 ;;User_ShowFrequenceDeltas_Description = Show difference between real frequency and target frequency. Shows up only when hoc-clk or sys-clk is detected running.
+;;User_ShowFrequenceDeltas_Description_ZH-CN = 显示实时频率与目标频率之间的差值。仅在检测到 hoc-clk 或 sys-clk 运行时出现。
 ;;User_ShowFrequenceDeltas_Description_PL-PL = Pokaż różnicę między rzeczywistymi a docelowymi taktowaniami. Dostępne tylko gdy działa w tle hoc-clk albo sys-clk.
 ;;User_ShowFrequenceDeltas_Description_DE-DE = Zeigt Unterschied zwischen tatsächlicher und Zielfrequenz an. Wird nur angezeigt, wenn hoc-clk oder sys-clk erkannt werden.
 
 ;;User_ShowFrequenceDeltas_Name = Show frequency deltas
+;;User_ShowFrequenceDeltas_Name_ZH-CN = 显示频率差值
 ;;User_ShowFrequenceDeltas_Name_PL-PL = Pokaż delty częstotliwości
 ;;User_ShowFrequenceDeltas_Name_DE-DE = Frequenzdifferenz anzeigen
 ;;User_ShowFrequenceDeltas_DefaultValue = true
 User_ShowFPS = true
 ;;User_ShowFPS_Description = Shows FPS value when game runs. Shows up only when SaltyNX is detected running.
+;;User_ShowFPS_Description_ZH-CN = 游戏运行时显示 FPS 数值。仅在检测到 SaltyNX 运行时出现。
 ;;User_ShowFPS_Description_PL-PL = Pokaż FPS gdy gra jest uruchomiona. Dostępne tylko gdy SaltyNX działa w tle.
 ;;User_ShowFPS_Description_DE-DE = Zeigt die FPS-Anzahl in Spielen an. Wird nur angezeigt, wenn SaltyNX erkannt wurde.
 ;;User_ShowFPS_Name = Show FPS
+;;User_ShowFPS_Name_ZH-CN = 显示 FPS
 ;;User_ShowFPS_Name_PL-PL = Pokaż FPS
 ;;User_ShowFPS_Name_DE-DE = FPS anzeigen
 ;;User_ShowFPS_DefaultValue = true
 User_ShowResolution = true
 ;;User_ShowResolution_Description = Shows two most likely candidates for rendering resolution of currently running game. Shows up only when SaltyNX is detected running.
+;;User_ShowResolution_Description_ZH-CN = 显示当前游戏渲染分辨率最可能的两个候选值。仅在检测到 SaltyNX 运行时出现。
 ;;User_ShowResolution_Description_PL-PL = Pokaż dwóch najlepszych kandydatów na rodzielczość renderowania gry. Dostępne tylko gdy SaltyNX działa w tle.
 ;;User_ShowResolution_Description_DE-DE = Zeigt die zwei wahrscheinlichsten Kandidaten für die Renderauflösung des aktuellen Spiels an. Wird nur angezeigt, wenn SaltyNX erkannt wurde.
 ;;User_ShowResolution_Name = Show resolutions
+;;User_ShowResolution_Name_ZH-CN = 显示分辨率
 ;;User_ShowResolution_Name_PL-PL = Pokaż rozdzielczości
 ;;User_ShowResolution_Name_DE-DE = Auflösungen anzeigen
 ;;User_ShowResolution_DefaultValue = true
 User_ShowReadSpeed = true
 ;;User_ShowReadSpeed_Description = Shows game's read speed in MiB/s. Shows up only when SaltyNX is detected running.
+;;User_ShowReadSpeed_Description_ZH-CN = 以 MiB/s 显示游戏读取速度。仅在检测到 SaltyNX 运行时出现。
 ;;User_ShowReadSpeed_Description_PL-PL = Pokaż prędkość odczytu gry w MiB/s. Dostępne tylko gdy SaltyNX działa w tle.
 ;;User_ShowReadSpeed_Description_DE-DE = Zeigt die Lesegeschwindigkeit des Spiels in MiB/s an. Wird nur angezeigt, wenn SaltyNX erkannt wurde.
 ;;User_ShowReadSpeed_Name = Show game's read speed
+;;User_ShowReadSpeed_Name_ZH-CN = 显示游戏读取速度
 ;;User_ShowReadSpeed_Name_PL-PL = Pokaż prędkość odczytu
 ;;User_ShowReadSpeed_Name_DE-DE = Lese­geschwindigkeit anzeigen
 ;;User_ShowReadSpeed_DefaultValue = true
 User_OldFPSAverage = false
 ;;User_OldFPSAverage_Description = Don't clamp FPS if they are in close range of PFPS value.
+;;User_OldFPSAverage_Description_ZH-CN = 当 FPS 接近 PFPS 值时不再进行钳制。
 ;;User_OldFPSAverage_Description_PL-PL = Nie zaokrąglaj FPS jeśli jest w pobliżu wartości PFPS.
 ;;User_OldFPSAverage_Description_DE-DE = Begrenze die FPS nicht, wenn sie sich in einem engen Bereich des PFPS-Wertes befinden.
 ;;User_OldFPSAverage_Name = Use old FPS averaging
+;;User_OldFPSAverage_Name_ZH-CN = 使用旧版 FPS 平均
 ;;User_OldFPSAverage_Name_PL-PL = Użyj starego uśredniania FPS
 ;;User_OldFPSAverage_Name_DE-DE = Alte FPS-Mittelung verwenden
 ;;User_OldFPSAverage_DefaultValue = false
@@ -76,6 +93,7 @@ User_OldFPSAverage = false
 ComboButtonFormat = IETF{"Hold %s to Exit"}
 IETF_LOCALE{ComboButtonFormat, "PL-PL", "Przytrzymaj %s by wyjść"}
 IETF_LOCALE{ComboButtonFormat, "DE-DE", "Halte %s zum Beenden"}
+IETF_LOCALE{ComboButtonFormat, "ZH-CN", "按住 %s 退出"}
 ComboButtonFooter = {IETF_GET{ComboButtonFormat}, formattedKeyCombo}
 
 UseCustomExitCombo = true
@@ -124,25 +142,45 @@ IETF_LOCALE{Resolutions1Text,          "PL-PL", "Rozdzielczości: %dx%d"}
 IETF_LOCALE{Resolutions2Text,          "PL-PL", "Rozdzielczości: %dx%d || %dx%d"}
 
 IETF_LOCALE{TargetFreqTextFormat,      "DE-DE", "Zielfrequenz: %u.%u MHz"}
+IETF_LOCALE{TargetFreqTextFormat, "ZH-CN", "目标频率: %u.%u MHz"}
 IETF_LOCALE{RealFreqTextFormat,        "DE-DE", "Tatsächliche Frequenz: %u.%u MHz"}
+IETF_LOCALE{RealFreqTextFormat, "ZH-CN", "实时频率: %u.%u MHz"}
 IETF_LOCALE{CPULoadTextFormat,         "DE-DE", "Kern #0: %.2lf%%\nKern #1: %.2lf%%\nKern #2: %.2lf%%\nKern #3: %.2lf%%"}
+IETF_LOCALE{CPULoadTextFormat, "ZH-CN", "核心 #0: %.2lf%%\n核心 #1: %.2lf%%\n核心 #2: %.2lf%%\n核心 #3: %.2lf%%"}
 IETF_LOCALE{GPULoadTextFormat,         "DE-DE", "Auslastung: %u.%u%%"}
+IETF_LOCALE{GPULoadTextFormat, "ZH-CN", "负载: %u.%u%%"}
 IETF_LOCALE{RAMLoadTextFormat,         "DE-DE", "Auslastung: %u.%u%% (CPU %u.%u | GPU %u.%u)"}
+IETF_LOCALE{RAMLoadTextFormat, "ZH-CN", "负载: %u.%u%% (CPU %u.%u | GPU %u.%u)"}
 IETF_LOCALE{RAMUsageBaseTextFormat,    "DE-DE", "Gesamt: \nApplikation: \nApplet: \nSystem: \nSystem (ungeschützt): "}
+IETF_LOCALE{RAMUsageBaseTextFormat, "ZH-CN", "总计: \n应用程序: \n小程序: \n系统: \n系统非安全区: "}
 IETF_LOCALE{BatteryChargingTextFormat, "DE-DE", "Akkustromfluss: %+.2fW[%s]"}
+IETF_LOCALE{BatteryChargingTextFormat, "ZH-CN", "电池功率: %+.2fW[%s]"}
 IETF_LOCALE{FanRotationTextFormat,     "DE-DE", "Lüfterdrehgeschwindigkeit: %2.1f%%"}
+IETF_LOCALE{FanRotationTextFormat, "ZH-CN", "风扇转速: %2.1f%%"}
 IETF_LOCALE{FPSNDText,                 "DE-DE", "PFPS: b/d; FPS: b/d"}
+IETF_LOCALE{FPSNDText, "ZH-CN", "PFPS: 无数据; FPS: 无数据"}
 IETF_LOCALE{ReadSpeedTextFormat,       "DE-DE", "Lesegeschwindigkeit: %.2f MiB/s"}
+IETF_LOCALE{ReadSpeedTextFormat, "ZH-CN", "读取速度: %.2f MiB/s"}
 IETF_LOCALE{ReadSpeedUnkTextFormat,    "DE-DE", "Lesegeschwindigkeit: b/d"}
+IETF_LOCALE{ReadSpeedUnkTextFormat, "ZH-CN", "读取速度: 无数据"}
 IETF_LOCALE{CpuUsageText,              "DE-DE", "CPU Auslastung:"}
+IETF_LOCALE{CpuUsageText, "ZH-CN", "CPU 占用:"}
 IETF_LOCALE{GpuUsageText,              "DE-DE", "GPU Auslastung:"}
+IETF_LOCALE{GpuUsageText, "ZH-CN", "GPU 占用:"}
 IETF_LOCALE{RamUsageText,              "DE-DE", "RAM Auslastung:"}
+IETF_LOCALE{RamUsageText, "ZH-CN", "内存占用:"}
 IETF_LOCALE{BoardUsageText,            "DE-DE", "Platine:"}
+IETF_LOCALE{BoardUsageText, "ZH-CN", "主板:"}
 IETF_LOCALE{TemperatureText,           "DE-DE", "Temperaturen:"}
+IETF_LOCALE{TemperatureText, "ZH-CN", "温度:"}
 IETF_LOCALE{ThermalSensorsText,        "DE-DE", "SOC \nPCB \nGehäuse "}
+IETF_LOCALE{ThermalSensorsText, "ZH-CN", "SoC \n主板 \n外壳 "}
 IETF_LOCALE{GameText,                  "DE-DE", "Spiel:"}
+IETF_LOCALE{GameText, "ZH-CN", "游戏:"}
 IETF_LOCALE{Resolutions1Text,          "DE-DE", "Auflösungen: %dx%d"}
+IETF_LOCALE{Resolutions1Text, "ZH-CN", "分辨率: %dx%d"}
 IETF_LOCALE{Resolutions2Text,          "DE-DE", "Auflösungen: %dx%d || %dx%d"}
+IETF_LOCALE{Resolutions2Text, "ZH-CN", "分辨率: %dx%d || %dx%d"}
 
 ; CPU works only if clkrst or pcv was correctly initialized, realCPU_Hz_int is always 0 when hoc:clk or sys:clk is not detected
 EnableCPU = true
